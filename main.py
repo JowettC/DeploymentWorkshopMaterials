@@ -11,9 +11,10 @@ async def root():
     
     return {"message": "Hello World"}
 
-@app.post("/predict/")
+@app.post("/predict")
 async def predict(request: Request):
     req_info = await request.json()
+    # array for size 4
     try:
         # return a numpy.ndarray object
         res = pickled_model.predict([req_info["X"]])
