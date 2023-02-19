@@ -23,8 +23,8 @@
     $("#submit").click(function(e) {
       e.preventDefault();
       var number = $("#number").val();
-      axios.post('http://localhost:5000/predict', {
-        numbers: [number]
+      axios.post('http://127.0.0.1:5000/predict', {
+        "X": [number]
       })
       .then(function (response) {
         console.log(response.data);
