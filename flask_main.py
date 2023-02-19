@@ -27,6 +27,7 @@ def predict():
     # convert into list then take the first element
     return {"res": res.tolist()[0]}
 
+
 if __name__ == "__main__":
     app.run(debug=True)
 
