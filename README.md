@@ -15,4 +15,21 @@ commands for windows:
 3. Install git and clone the repo `sudo yum install git` and `git clone <url>`
 4. Go into directory using `cd DeploymentWorkshopMaterials`
 4. Install dependencies `pip3 install -r requirements.txt`
-5. Run Flask with `python3 flask_main.py` or fast api with `python3 -m uvicorn main:app --reload`
+- You can try running Flask with `python3 flask_main.py`
+5. Create a service file `sudo nano /etc/systemd/system/myflaskapp.service`
+6. Paste the following code into the file
+```
+[Unit]
+Description=My Flask App
+After=network.target
+
+[Service]
+User=ec2-user
+WorkingDirectory=/path/to/your/flask/app
+ExecStart=/usr/bin/python3 app.py
+Restart=always
+
+[Install]
+WantedBy=multi-user.target
+```
+7. Start the service `sudo systemctl start myflaskapp`
