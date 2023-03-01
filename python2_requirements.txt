@@ -43,3 +43,4 @@ watchfiles==0.18.1
 websockets==10.4
 Werkzeug==2.2.3
 zipp==3.15.0
+Flask-Cors==3.0.10
