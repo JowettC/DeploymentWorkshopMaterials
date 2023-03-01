@@ -1,8 +1,10 @@
 from flask import Flask, render_template, request
 import pickle 
+from flask_cors import CORS
 pickled_model = pickle.load(open('deploymentWorkshopModel.pkl', 'rb'))
 
 app = Flask(__name__)
+CORS(app)
 
 @app.route("/")
 def index():
