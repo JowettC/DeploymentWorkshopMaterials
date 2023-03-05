@@ -17,14 +17,14 @@ def predict():
         return render_template('index.html')
     
     try:
-        sepalLength = int(request.form['sepalLength'])
-        sepalWidth = int(request.form['sepalWidth'])
-        petalLength = int(request.form['petalLength'])
-        petalWidth = int(request.form['petalWidth'])
+        sepalLength = float(request.form['sepalLength'])
+        sepalWidth = float(request.form['sepalWidth'])
+        petalLength = float(request.form['petalLength'])
+        petalWidth = float(request.form['petalWidth'])
 
     except:
         return render_template('index.html', res= "Enter All Fields!" )
-    
+    print(sepalLength, sepalWidth, petalLength, petalWidth)
     res = pickled_model.predict([[sepalLength, sepalWidth, petalLength, petalWidth]])
 
     return render_template('index.html', res= res.tolist()[0] )
