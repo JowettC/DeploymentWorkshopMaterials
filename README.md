@@ -25,7 +25,7 @@ After=network.target
 
 [Service]
 User=ec2-user
-WorkingDirectory=/path/to/your/flask/app
+WorkingDirectory=/home/ec2-user/DeploymentWorkshopMaterials
 ExecStart=/usr/bin/python3 app.py
 Restart=always
 

@@ -9,26 +9,27 @@ CORS(app)
 
 @app.route("/")
 def index():
-    return {"message": "Hello World"}
+    return render_template('index.html')
 
-@app.route("/predict", methods=["POST"])
+@app.route("/predict", methods=["POST", "GET"])
 def predict():
-    try:
-        numbers = request.get_json()['X']
-    except:
-        return "Error, no input received"
+    if request.method == "GET":
+        return render_template('index.html')
     
-    # try:
-    #     # return a numpy.ndarray object
-    #     res = pickled_model.predict(numbers)
-    #     # convert into list then take the first element
-    #     return {"res": res.tolist()[0]}
-    # except:
-    #     return {"res": "error"}
-            # return a numpy.ndarray object
-    res = pickled_model.predict([numbers])
-    # convert into list then take the first element
-    return {"res": res.tolist()[0]}
+    try:
+        sepalLength = int(request.form['sepalLength'])
+        sepalWidth = int(request.form['sepalWidth'])
+        petalLength = int(request.form['petalLength'])
+        petalWidth = int(request.form['petalWidth'])
+
+    except:
+        return render_template('index.html', res= "Enter All Fields!" )
+    
+    res = pickled_model.predict([[sepalLength, sepalWidth, petalLength, petalWidth]])
+
+    return render_template('index.html', res= res.tolist()[0] )
+
+
 
 
 if __name__ == "__main__":

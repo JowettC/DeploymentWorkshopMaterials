@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <title>Form Page</title>
+</head>
+<body>
+  <div class="container my-5">
+    <form id="form" action="predict" method="post">
+      <div class="form-group">
+        <label for="number">Length of Sepals :</label>
+        <input type="number" class="form-control" id="sepalLength" name="sepalLength">
+      </div>
+      <div class="form-group">
+        <label for="number">Width of Sepals :</label>
+        <input type="number" class="form-control" id="sepalWidth" name="sepalWidth">
+      </div>
+      <div class="form-group">
+        <label for="number">Length of Petals :</label>
+        <input type="number" class="form-control" id="petalLength" name="petalLength">
+      </div>
+      <div class="form-group">
+        <label for="number">Width of Petals :</label>
+        <input type="number" class="form-control" id="petalWidth" name="petalWidth">
+      </div>
+      <button id="submit" class="btn btn-success">Submit</button>
+      <br/>
+      Result: <span id="result"> {{res}}</span>
+    </form>
+  </div>
+
+  <script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha384-ZvpUoO/+PpLXR1lu4jmpXWu80pZlYUAfxl5NsBMWOEPSjUn/6Z/hRTt8+pR6L4N2" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  <script>
+    
+    // $("#submit").click(function(e) {
+    //   e.preventDefault();
+    //   var sepalLength = parseInt($("#sepalLength").val());
+    //   var sepalWidth = parseInt($("#sepalWidth").val());
+    //   var petalLength = parseInt($("#petalLength").val());
+    //   var petalWidth = parseInt($("#petalWidth").val());
+
+    //   axios.post('http://127.0.0.1:5000/predict', {
+    //     "X": [sepalLength, sepalWidth, petalLength, petalWidth]
+    //   })
+    //   .then(function (response) {
+    //     console.log(response.data);
+    //     $("#result").text(response.data.res);
+    //   })
+    //   .catch(function (error) {
+    //     console.error(error);
+    //   });
+    // });
+  </script>
+</body>
+</html>
