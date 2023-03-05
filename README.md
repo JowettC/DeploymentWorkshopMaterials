@@ -26,7 +26,7 @@ After=network.target
 [Service]
 User=ec2-user
 WorkingDirectory=/home/ec2-user/DeploymentWorkshopMaterials
-ExecStart=/usr/bin/python3 app.py
+ExecStart=/usr/bin/python3 flask_main.py
 Restart=always
 
 [Install]
