@@ -7,6 +7,10 @@ pickled_model = pickle.load(open('deploymentWorkshopModel.pkl', 'rb'))
 app = Flask(__name__)
 CORS(app)
 
+@app.route("/test")
+def test():
+    return render_template("test.html")
+
 @app.route("/")
 def index():
     return render_template('index.html')
